@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="AgriMitra brings reported mandi prices, practical crop guidance, and AI support to farmers in their language.">
+    <title>AgriMitra | The Future of Farming Speaks Your Language</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Lora:ital,wght@0,500;0,600;1,500;1,600&family=Noto+Sans+Arabic:wght@400;500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Noto+Sans+Gujarati:wght@400;500;600;700&family=Noto+Sans+Gurmukhi:wght@400;500;600;700&family=Noto+Sans+Kannada:wght@400;500;600;700&family=Noto+Sans+Malayalam:wght@400;500;600;700&family=Noto+Sans+Oriya:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&family=Noto+Sans+Telugu:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;1,500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=16">
+</head>
+
+<body>
+
+    <!-- ===== NAVBAR ===== -->
+    <header class="navbar" id="navbar">
+        <div class="logo">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                <ellipse cx="11" cy="8" rx="7" ry="9" fill="#4a6741" transform="rotate(-8 11 8)" opacity="0.9" />
+                <ellipse cx="11" cy="9" rx="4" ry="7" fill="#6a9460" transform="rotate(-8 11 9)" opacity="0.7" />
+                <line x1="11" y1="20" x2="10" y2="4" stroke="#3a5230" stroke-width="1.5" stroke-linecap="round" />
+            </svg>
+            <span>AgriMitra</span>
+        </div>
+        <nav class="nav-links">
+            <a href="#markets">Markets</a>
+            <a href="#insights">Insights</a>
+            <a href="#monitor">Monitor</a>
+            <a href="chat.html">Ask AI</a>
+            <a href="#about">About</a>
+        </nav>
+        <a href="chat.html" class="btn-nav">Get Started &nbsp;→</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </header>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+        <!-- Layered background simulating atmospheric agricultural field -->
+        <div class="hero-bg">
+            <div class="sky-layer"></div>
+            <div class="mist-layer"></div>
+            <div class="mountain-layer"></div>
+            <div class="field-layer"></div>
+            <div class="fade-left"></div>
+            <div class="fade-top"></div>
+        </div>
+
+        <!-- Left text -->
+        <div class="hero-left">
+            <h1 class="hero-h1">
+                <span>The Future of Farming</span>
+                <br>
+                <span class="h1-accent">Speaks Your Language</span>
+            </h1>
+            <p class="hero-sub">Reported mandi prices, practical crop guidance, and AI support in your language.</p>
+            <div class="hero-ctas">
+                <a href="chat.html" class="btn-dark">Ask AgriMitra &nbsp;→</a>
+                <button class="btn-ghost-play">
+                    <span class="play-btn">
+                        <svg width="9" height="11" viewBox="0 0 9 11" fill="none">
+                            <path d="M1 1L8 5.5L1 10V1Z" fill="#172018" />
+                        </svg>
+                    </span>
+                    See how it works
+                </button>
+            </div>
+        </div>
+
+        <!-- Right visual: plant + data effects -->
+        <div class="hero-right">
+            <!-- Data flow lines -->
+            <svg class="data-svg" viewBox="0 0 550 680" fill="none" aria-hidden="true">
+                <path d="M80 650 C 150 530 280 440 380 320 C 440 250 500 180 540 100" stroke="rgba(255,255,255,0.35)"
+                    stroke-width="1.8" fill="none" />
+                <path d="M30 620 C 120 510 260 420 360 300 C 430 230 490 155 535 70" stroke="rgba(255,255,255,0.18)"
+                    stroke-width="1" fill="none" />
+                <path d="M130 660 C 200 550 310 460 400 350 C 455 280 510 200 545 120" stroke="rgba(180,220,160,0.3)"
+                    stroke-width="2.2" fill="none" />
+                <!-- Glowing dots -->
+                <circle cx="310" cy="370" r="3.5" fill="rgba(180,230,140,0.95)" />
+                <circle cx="310" cy="370" r="9" fill="rgba(180,230,140,0.15)" />
+                <circle cx="430" cy="270" r="2.5" fill="rgba(255,255,255,0.8)" />
+                <circle cx="200" cy="490" r="2" fill="rgba(255,255,255,0.6)" />
+                <circle cx="500" cy="175" r="2" fill="rgba(200,235,165,0.8)" />
+                <circle cx="360" cy="315" r="1.5" fill="rgba(255,255,255,0.5)" />
+            </svg>
+            <!-- Dot grids -->
+            <div class="dot-grid dg-tr"></div>
+            <div class="dot-grid dg-br"></div>
+            <!-- Plant SVG (matches reference: 3 main leaves, stem, veins) -->
+            <div class="plant-wrap">
+                <svg class="plant-svg" viewBox="0 0 400 660" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Main stem -->
+                    <path d="M200 640 C 198 580 196 510 197 440 C 198 370 196 300 198 220 C 199 165 197 100 196 42"
+                        stroke="#3d5c2e" stroke-width="5.5" stroke-linecap="round" />
+                    <!-- Sub-stem branch left -->
+                    <path d="M197 340 C 180 325 160 315 140 300" stroke="#4a6836" stroke-width="3"
+                        stroke-linecap="round" />
+                    <!-- Sub-stem branch right -->
+                    <path d="M198 280 C 218 265 238 255 260 240" stroke="#4a6836" stroke-width="3"
+                        stroke-linecap="round" />
+
+                    <!-- LARGE UPPER RIGHT LEAF (dominant in ref) -->
+                    <path
+                        d="M198 220 C 220 185 268 148 316 110 C 345 88 368 72 376 55 C 382 42 372 28 356 28 C 334 28 304 48 278 72 C 248 100 220 138 205 175 C 198 195 197 210 198 220Z"
+                        fill="url(#leafGrad1)" />
+                    <!-- Midrib -->
+                    <path d="M198 220 C 232 178 286 130 356 42" stroke="#3d6828" stroke-width="2" opacity="0.5"
+                        stroke-linecap="round" />
+                    <!-- Side veins -->
+                    <path d="M232 190 C 252 180 270 170 290 158" stroke="#4a7832" stroke-width="1.2" opacity="0.4"
+                        stroke-linecap="round" />
+                    <path d="M218 205 C 240 196 260 186 280 174" stroke="#4a7832" stroke-width="1.2" opacity="0.4"
+                        stroke-linecap="round" />
+                    <path d="M250 168 C 268 158 285 148 304 138" stroke="#4a7832" stroke-width="1" opacity="0.35"
+                        stroke-linecap="round" />
+                    <!-- Highlight -->
+                    <path d="M215 208 C 245 175 295 130 350 50" stroke="rgba(255,255,255,0.22)" stroke-width="4"
+                        stroke-linecap="round" />
+
+                    <!-- LARGE LEFT LEAF -->
+                    <path
+                        d="M197 350 C 170 325 118 305 72 275 C 44 256 26 232 32 208 C 38 188 68 180 100 188 C 136 198 168 228 184 265 C 193 290 197 322 197 350Z"
+                        fill="url(#leafGrad2)" />
+                    <!-- Midrib -->
+                    <path d="M197 350 C 165 315 110 275 48 208" stroke="#3a6025" stroke-width="2" opacity="0.45"
+                        stroke-linecap="round" />
+                    <!-- Side veins -->
+                    <path d="M165 305 C 145 295 128 285 112 272" stroke="#4a7832" stroke-width="1.2" opacity="0.4"
+                        stroke-linecap="round" />
+                    <path d="M152 325 C 132 315 115 305 100 292" stroke="#4a7832" stroke-width="1.2" opacity="0.4"
+                        stroke-linecap="round" />
+                    <!-- Highlight -->
+                    <path d="M185 340 C 158 310 112 270 55 210" stroke="rgba(255,255,255,0.18)" stroke-width="3"
+                        stroke-linecap="round" />
+
+                    <!-- LOWER RIGHT LEAF -->
+                    <path
+                        d="M199 430 C 228 408 278 392 322 362 C 348 344 362 318 350 298 C 338 280 310 278 282 292 C 252 308 226 342 210 375 C 202 395 199 415 199 430Z"
+                        fill="url(#leafGrad3)" />
+                    <!-- Midrib -->
+                    <path d="M199 430 C 240 390 298 346 348 300" stroke="#4a6828" stroke-width="2" opacity="0.45"
+                        stroke-linecap="round" />
+                    <!-- Side veins -->
+                    <path d="M232 406 C 252 394 272 382 294 368" stroke="#4a7832" stroke-width="1.2" opacity="0.4"
+                        stroke-linecap="round" />
+                    <path d="M218 418 C 238 406 258 395 278 382" stroke="#4a7832" stroke-width="1" opacity="0.35"
+                        stroke-linecap="round" />
+
+                    <!-- SMALL TOP LEAF -->
+                    <path
+                        d="M197 120 C 186 94 178 62 186 36 C 190 22 200 16 208 24 C 218 34 214 64 208 90 C 204 105 200 115 197 120Z"
+                        fill="url(#leafGrad4)" />
+                    <path d="M197 120 C 194 88 192 58 196 30" stroke="#3a6025" stroke-width="1.5" opacity="0.4"
+                        stroke-linecap="round" />
+
+                    <!-- SMALL LEFT UPPER LEAF -->
+                    <path
+                        d="M196 230 C 168 205 138 188 118 162 C 108 148 114 130 128 128 C 146 126 168 148 180 170 C 188 188 193 212 196 230Z"
+                        fill="url(#leafGrad5)" />
+
+                    <!-- Gradient defs -->
+                    <defs>
+                        <linearGradient id="leafGrad1" x1="198" y1="220" x2="376" y2="28"
+                            gradientUnits="userSpaceOnUse">
+                            <stop offset="0%" stop-color="#3a6828" />
+                            <stop offset="50%" stop-color="#558040" />
+                            <stop offset="100%" stop-color="#4a7832" />
+                        </linearGradient>
+                        <linearGradient id="leafGrad2" x1="197" y1="350" x2="32" y2="208"
+                            gradientUnits="userSpaceOnUse">
+                            <stop offset="0%" stop-color="#3d6030" />
+                            <stop offset="50%" stop-color="#527840" />
+                            <stop offset="100%" stop-color="#436830" />
+                        </linearGradient>
+                        <linearGradient id="leafGrad3" x1="199" y1="430" x2="350" y2="298"
+                            gradientUnits="userSpaceOnUse">
+                            <stop offset="0%" stop-color="#436030" />
+                            <stop offset="55%" stop-color="#5e8e46" />
+                            <stop offset="100%" stop-color="#4a7034" />
+                        </linearGradient>
+                        <linearGradient id="leafGrad4" x1="197" y1="120" x2="208" y2="16"
+                            gradientUnits="userSpaceOnUse">
+                            <stop offset="0%" stop-color="#436830" />
+                            <stop offset="100%" stop-color="#5a8c40" />
+                        </linearGradient>
+                        <linearGradient id="leafGrad5" x1="196" y1="230" x2="118" y2="128"
+                            gradientUnits="userSpaceOnUse">
+                            <stop offset="0%" stop-color="#3e6428" />
+                            <stop offset="100%" stop-color="#5a8440" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+        </div>
+
+        <!-- Bottom wave mask -->
+        <div class="hero-wave">
+            <svg viewBox="0 0 1440 90" preserveAspectRatio="none" fill="none">
+                <path d="M0 90 V55 Q480 90 720 52 Q960 14 1440 55 V90 H0Z" fill="#F5F2E8" />
+            </svg>
+        </div>
+    </section>
+
+    <!-- ===== OUTER PAGE BODY ===== -->
+    <div class="page-body">
+
+        <!-- ===== SECTION 1: MARKET INTELLIGENCE ===== -->
+        <section class="card-section" id="markets">
+            <div class="mkt-card mkt-simple-card">
+
+                <!-- LEFT: copy & features -->
+                <div class="mkt-left mkt-simple-left">
+                    <div class="live-badge">
+                        <span class="live-dot"></span>
+                        LIVE MARKET INTELLIGENCE
+                    </div>
+
+                    <h2 class="mkt-heading">
+                        Market<br>
+                        intelligence,<br>
+                        <em class="mkt-accent">made simple.</em>
+                    </h2>
+                    <p class="mkt-sub">We track real-time prices, analyze trends, and bring you clear signals from across key agricultural markets.</p>
+
+                    <ul class="feature-list">
+                        <li>
+                            <span class="feat-icon">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3d5830" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+                            </span>
+                            Real-time price updates
+                        </li>
+                        <li>
+                            <span class="feat-icon">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3d5830" stroke-width="2"><path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.5 0 2.5 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"></path><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.5 0 2.5 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"></path><path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.5 0 2.5 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"></path></svg>
+                            </span>
+                            Spot demand &amp; supply shifts
+                        </li>
+                        <li>
+                            <span class="feat-icon">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3d5830" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
+                            </span>
+                            Trusted insights you can act on
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- RIGHT: atmospheric visual -->
+                <div class="mkt-right-scenery">
+                    <!-- Background layers -->
+                    <div class="mkt-landscape"></div>
+                    <div class="mkt-field"></div>
+                    <div class="mkt-mist"></div>
+                    <div class="mkt-bg-fade"></div>
+
+                    <!-- Market Pulse Card -->
+                    <div class="mkt-pulse-card">
+                        <div class="mkt-pulse-header">
+                            <div class="mkt-pulse-title">Market pulse</div>
+                            <div class="mkt-pulse-sub">Stay ahead with live signals</div>
+                        </div>
+                        <div class="mkt-pulse-list">
+                            <div class="pulse-item">
+                                <div class="pulse-crop"><span>🍅</span> Tomato (Nashik)</div>
+                                <div class="pulse-val"><strong>₹2,400</strong> <span class="p-up">▲ +12.4%</span></div>
+                            </div>
+                            <div class="pulse-item">
+                                <div class="pulse-crop"><span>☁️</span> Cotton (Rajkot)</div>
+                                <div class="pulse-val"><strong>₹7,200</strong> <span class="p-down">▼ -2.1%</span></div>
+                            </div>
+                            <div class="pulse-item">
+                                <div class="pulse-crop"><span>🌾</span> Wheat (Khanna)</div>
+                                <div class="pulse-val"><strong>₹2,150</strong> <span class="p-up">▲ +1.5%</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dot grid top right -->
+                    <div class="dot-grid-tr"></div>
+
+                    <!-- Plant (large, right edge) -->
+                    <div class="mkt-plant" aria-hidden="true">
+                        <svg viewBox="0 0 320 560" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="g1" x1="160" y1="500" x2="310" y2="20" gradientUnits="userSpaceOnUse">
+                                    <stop offset="0%" stop-color="#2d5020"/>
+                                    <stop offset="45%" stop-color="#4a7832"/>
+                                    <stop offset="100%" stop-color="#3d6828"/>
+                                </linearGradient>
+                                <linearGradient id="g2" x1="160" y1="420" x2="10" y2="160" gradientUnits="userSpaceOnUse">
+                                    <stop offset="0%" stop-color="#304e22"/>
+                                    <stop offset="50%" stop-color="#4a7030"/>
+                                    <stop offset="100%" stop-color="#38601e"/>
+                                </linearGradient>
+                                <linearGradient id="g3" x1="162" y1="350" x2="300" y2="180" gradientUnits="userSpaceOnUse">
+                                    <stop offset="0%" stop-color="#3a5c28"/>
+                                    <stop offset="55%" stop-color="#568040"/>
+                                    <stop offset="100%" stop-color="#447030"/>
+                                </linearGradient>
+                                <linearGradient id="g4" x1="160" y1="180" x2="10" y2="60" gradientUnits="userSpaceOnUse">
+                                    <stop offset="0%" stop-color="#3e6828"/>
+                                    <stop offset="100%" stop-color="#5a8840"/>
+                                </linearGradient>
+                                <linearGradient id="g5" x1="160" y1="100" x2="280" y2="20" gradientUnits="userSpaceOnUse">
+                                    <stop offset="0%" stop-color="#406430"/>
+                                    <stop offset="100%" stop-color="#5e8c48"/>
+                                </linearGradient>
+                            </defs>
+                            <path d="M162 545 C160 490 158 430 159 370 C160 310 158 250 160 190 C161 148 159 100 158 48" stroke="#2d5020" stroke-width="5" stroke-linecap="round"/>
+                            <path d="M160 190 C182 155 228 118 274 80 C300 58 318 40 320 24 C322 12 312 2 298 4 C278 6 250 28 224 56 C196 86 170 128 160 168 C157 178 158 185 160 190Z" fill="url(#g1)"/>
+                            <path d="M160 190 C196 148 250 98 310 18" stroke="#2a4818" stroke-width="2" opacity="0.45" stroke-linecap="round"/>
+                            <path d="M196 162 C218 148 240 136 262 120" stroke="#38601e" stroke-width="1.2" opacity="0.4" stroke-linecap="round"/>
+                            <path d="M180 175 C204 162 226 150 250 134" stroke="#38601e" stroke-width="1" opacity="0.35" stroke-linecap="round"/>
+                            <path d="M218 142 C236 130 256 118 276 106" stroke="#38601e" stroke-width="1" opacity="0.3" stroke-linecap="round"/>
+                            <path d="M173 183 C208 148 262 100 310 26" stroke="rgba(255,255,255,0.2)" stroke-width="5" stroke-linecap="round"/>
+                            <path d="M158 310 C132 286 82 264 46 230 C22 208 16 180 28 162 C40 146 70 144 100 158 C132 174 154 216 157 268 C158 286 158 300 158 310Z" fill="url(#g2)"/>
+                            <path d="M158 310 C130 276 86 232 36 170" stroke="#2a4818" stroke-width="2" opacity="0.4" stroke-linecap="round"/>
+                            <path d="M128 275 C108 260 90 248 74 234" stroke="#38601e" stroke-width="1.2" opacity="0.4" stroke-linecap="round"/>
+                            <path d="M142 292 C120 278 102 265 86 250" stroke="#38601e" stroke-width="1" opacity="0.35" stroke-linecap="round"/>
+                            <path d="M148 302 C128 288 110 275 94 260" stroke="#38601e" stroke-width="1" opacity="0.3" stroke-linecap="round"/>
+                            <path d="M154 300 C124 268 80 228 40 175" stroke="rgba(255,255,255,0.16)" stroke-width="4" stroke-linecap="round"/>
+                            <path d="M162 385 C188 364 234 348 268 318 C290 298 296 270 282 252 C268 236 242 238 218 252 C192 268 168 310 163 360 C162 370 162 378 162 385Z" fill="url(#g3)"/>
+                            <path d="M162 385 C200 350 252 306 280 256" stroke="#2a4818" stroke-width="1.8" opacity="0.4" stroke-linecap="round"/>
+                            <path d="M194 365 C218 348 242 332 264 316" stroke="#38601e" stroke-width="1.1" opacity="0.38" stroke-linecap="round"/>
+                            <path d="M178 375 C202 358 226 342 250 326" stroke="#38601e" stroke-width="1" opacity="0.3" stroke-linecap="round"/>
+                            <path d="M159 105 C148 78 140 44 150 18 C154 6 164 0 170 10 C178 22 172 56 166 82 C163 94 161 102 159 105Z" fill="url(#g4)"/>
+                            <path d="M159 105 C155 76 152 44 158 14" stroke="#2a4818" stroke-width="1.4" opacity="0.38" stroke-linecap="round"/>
+                            <path d="M158 198 C134 174 104 158 88 130 C80 116 86 98 100 96 C118 94 138 118 150 144 C156 160 158 182 158 198Z" fill="url(#g5)"/>
+                            <path d="M158 198 C136 168 100 134 92 108" stroke="#2a4818" stroke-width="1.3" opacity="0.35" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    
+                    <!-- 3 Floating Feature Cards with Connection Arrows -->
+                    <div class="feature-glass-cards">
+                        <div class="feat-glass-card">
+                            <div class="fg-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3d5830" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>
+                            </div>
+                            <div class="fg-name">Prices</div>
+                            <div class="fg-desc">Track real-time market prices</div>
+                        </div>
+                        <div class="fg-step-arrow">→</div>
+                        <div class="feat-glass-card">
+                            <div class="fg-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3d5830" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+                            </div>
+                            <div class="fg-name">Trends</div>
+                            <div class="fg-desc">Understand patterns &amp; momentum</div>
+                        </div>
+                        <div class="fg-step-arrow">→</div>
+                        <div class="feat-glass-card">
+                            <div class="fg-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3d5830" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+                            </div>
+                            <div class="fg-name">Alerts</div>
+                            <div class="fg-desc">Get notified on key market changes</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ===== SECTION 2: HOW AGRIMITRA WORKS ===== -->
+        <section class="card-section" id="insights">
+            <div class="flow-card flow-card-simple">
+                
+                <div class="flow-top-split">
+                    <!-- Left Column -->
+                    <div class="flow-left flow-left-simple">
+                        <div class="flow-badge-pill">
+                            <span class="live-dot"></span>
+                            HOW AGRIMITRA WORKS
+                        </div>
+                        <h2 class="flow-heading">
+                            From market data<br>
+                            to <em class="flow-accent">better decisions.</em>
+                        </h2>
+                        <p class="flow-sub">
+                            AgriMitra combines real-time data, AI, and agricultural knowledge to deliver actionable recommendations.
+                        </p>
+                    </div>
+
+                    <!-- Right Column: 6 Flow Steps -->
+                    <div class="flow-right flow-right-simple">
+                        <div class="steps-row">
+                            <div class="step">
+                                <div class="step-icon-wrap">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3d5830" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+                                </div>
+                                <div class="step-title">Live Market Data</div>
+                                <div class="step-desc">Real-time prices, arrivals and trends.</div>
+                            </div>
+                            <div class="step-arrow">→</div>
+                            <div class="step">
+                                <div class="step-icon-wrap">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3d5830" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                                </div>
+                                <div class="step-title">Market Intelligence</div>
+                                <div class="step-desc">AI analyzes patterns and demand.</div>
+                            </div>
+                            <div class="step-arrow">→</div>
+                            <div class="step">
+                                <div class="step-icon-wrap">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3d5830" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                                </div>
+                                <div class="step-title">Demand &amp; Trend Analysis</div>
+                                <div class="step-desc">Identify opportunities and risks.</div>
+                            </div>
+                            <div class="step-arrow">→</div>
+                            <div class="step">
+                                <div class="step-icon-wrap">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3d5830" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                                </div>
+                                <div class="step-title">RAG Knowledge</div>
+                                <div class="step-desc">Uses trusted agri knowledge.</div>
+                            </div>
+                            <div class="step-arrow">→</div>
+                            <div class="step">
+                                <div class="step-icon-wrap">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3d5830" stroke-width="2"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-2.04z"></path><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-2.04z"></path></svg>
+                                </div>
+                                <div class="step-title">Decision Agent</div>
+                                <div class="step-desc">Generates best options.</div>
+                            </div>
+                            <div class="step-arrow">→</div>
+                            <div class="step">
+                                <div class="step-icon-wrap">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3d5830" stroke-width="2"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path></svg>
+                                </div>
+                                <div class="step-title">Farmer Recommendation</div>
+                                <div class="step-desc">Clear, actionable advice.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bottom Trust Pill Bar -->
+                <div class="flow-trust-pill-bar">
+                    <div class="trust-pill-item">
+                        <span class="tp-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3d5830" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
+                        </span>
+                        <div class="tp-text">
+                            <strong>Secure &amp; Reliable</strong>
+                            <span>Enterprise-grade security</span>
+                        </div>
+                    </div>
+                    <div class="tp-divider"></div>
+                    <div class="trust-pill-item">
+                        <span class="tp-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3d5830" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                        </span>
+                        <div class="tp-text">
+                            <strong>Built for Farmers</strong>
+                            <span>Practical, real-world insights</span>
+                        </div>
+                    </div>
+                    <div class="tp-divider"></div>
+                    <div class="trust-pill-item">
+                        <span class="tp-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3d5830" stroke-width="2"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path></svg>
+                        </span>
+                        <div class="tp-text">
+                            <strong>Sustainable Agriculture</strong>
+                            <span>Smarter farming, higher returns</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ===== FOOTER ===== -->
+        <!-- ===== FOOTER ===== -->
+        <footer class="site-footer">
+            <div class="footer-top">
+                <!-- Brand & Social -->
+                <div class="footer-brand">
+                    <div class="logo">
+                        <svg width="26" height="26" viewBox="0 0 22 22" fill="none">
+                            <ellipse cx="11" cy="8" rx="7" ry="9" fill="#4a6741" transform="rotate(-8 11 8)" opacity="0.9" />
+                            <ellipse cx="11" cy="9" rx="4" ry="7" fill="#6a9460" transform="rotate(-8 11 9)" opacity="0.7" />
+                            <line x1="11" y1="20" x2="10" y2="4" stroke="#3a5230" stroke-width="1.5" stroke-linecap="round" />
+                        </svg>
+                        <span style="font-size: 1.45rem;">AgriMitra</span>
+                    </div>
+                    <p class="brand-tagline">Intelligence for better decisions.</p>
+                    <p class="brand-desc">Real-time AI market intelligence empowering farmers with actionable insights for smarter decisions.</p>
+                    
+                    <div class="footer-status-pill">
+                        <span class="live-dot"></span>
+                        Live Data Stream Active
+                    </div>
+
+                    <div class="social-links">
+                        <a href="#" class="social-icon" aria-label="Twitter">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="LinkedIn">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="YouTube">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Links Columns -->
+                <div class="footer-links-group">
+                    <div class="footer-col">
+                        <h4 class="footer-heading">PRODUCT</h4>
+                        <ul class="footer-menu">
+                            <li><a href="market.html">Live Markets</a></li>
+                            <li><a href="chat.html">Ask AI Assistant</a></li>
+                            <li><a href="#insights">Market Insights</a></li>
+                            <li><a href="soil-crops.html">Soil &amp; Crops</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-col">
+                        <h4 class="footer-heading">SOLUTIONS</h4>
+                        <ul class="footer-menu">
+                            <li><a href="#markets">Price Tracking</a></li>
+                            <li><a href="#insights">Trend Analysis</a></li>
+                            <li><a href="chat.html">Decision Support</a></li>
+                            <li><a href="market.html">Mandi Arrivals</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-col">
+                        <h4 class="footer-heading">COMPANY</h4>
+                        <ul class="footer-menu">
+                            <li><a href="#hero">About AgriMitra</a></li>
+                            <li><a href="#insights">How It Works</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="footer-newsletter">
+                    <h4 class="footer-heading">REAL-TIME ALERTS</h4>
+                    <p class="newsletter-desc">Get instant price movements &amp; market updates directly to your inbox.</p>
+                    <form class="newsletter-form" id="footerNewsletterForm">
+                        <input type="email" placeholder="Enter your email" required class="newsletter-input" id="footerEmailInput">
+                        <button type="submit" class="newsletter-btn" aria-label="Subscribe">
+                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h10M7 3l4 4-4 4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </button>
+                    </form>
+                    <div id="newsletterSuccess" class="newsletter-success">✓ Subscribed to live market alerts!</div>
+                </div>
+            </div>
+            
+            <!-- Bottom Legal -->
+            <div class="footer-bottom">
+                <div class="copyright">© <span id="copyrightYear">2026</span> AgriMitra. All rights reserved.</div>
+                <div class="legal-links">
+                    <a href="#">Privacy Policy</a>
+                    <span class="sep">•</span>
+                    <a href="#">Terms of Service</a>
+                    <span class="sep">•</span>
+                    <a href="#">Data Security</a>
+                    <button class="scroll-top-btn" aria-label="Scroll to top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+                    </button>
+                </div>
+            </div>
+        </footer>
+
+    </div><!-- end page-body -->
+
+    <script src="localization.js?v=3"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

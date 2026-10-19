@@ -1,0 +1,36 @@
+[project]
+name = "agrimitra-backend"
+version = "0.1.0"
+description = "Backend for AgriMitra agentic market intelligence system"
+authors = [
+    {name = "Pranav", email = "pranav@example.com"}
+]
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.111.0",
+    "uvicorn[standard]>=0.30.1",
+    "pydantic>=2.7.4",
+    "pydantic-settings>=2.3.4",
+    "sqlalchemy>=2.0.31",
+    "alembic>=1.13.1",
+    "langgraph>=0.1.7",
+    "langchain>=0.2.6",
+    "langchain-community>=0.2.6",
+    "langchain-openai>=0.1.14", # For Nvidia OpenAI compatible API
+    "chromadb>=0.5.3", # For local RAG without Docker
+    "apscheduler>=3.10.4",
+    "httpx>=0.27.0",
+    "python-dotenv>=1.0.1",
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["app"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

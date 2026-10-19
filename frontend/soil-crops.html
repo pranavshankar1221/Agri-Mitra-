@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AgriMitra AI – Soil condition metrics and crop rotation suitability planner.">
+    <title>AgriMitra AI | Soil &amp; Crops</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Lora:ital,wght@0,500;0,600;1,500&family=Noto+Sans+Arabic:wght@400;500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Noto+Sans+Gujarati:wght@400;500;600;700&family=Noto+Sans+Gurmukhi:wght@400;500;600;700&family=Noto+Sans+Kannada:wght@400;500;600;700&family=Noto+Sans+Malayalam:wght@400;500;600;700&family=Noto+Sans+Oriya:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&family=Noto+Sans+Telugu:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=16">
+    <link rel="stylesheet" href="chat.css?v=7">
+</head>
+<body class="light-theme">
+    <div class="chat-container">
+        <!-- ===== SIDEBAR ===== -->
+        <aside class="chat-sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="header-top-row">
+                    <a href="index.html" class="logo">
+                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                            <ellipse cx="11" cy="8" rx="7" ry="9" fill="#4a6741" transform="rotate(-8 11 8)" opacity="0.9" />
+                            <ellipse cx="11" cy="9" rx="4" ry="7" fill="#6a9460" transform="rotate(-8 11 9)" opacity="0.7" />
+                            <line x1="11" y1="20" x2="10" y2="4" stroke="#3a5230" stroke-width="1.5" stroke-linecap="round" />
+                        </svg>
+                        <span>AgriMitra</span>
+                    </a>
+                    <div class="sidebar-actions">
+                        <button class="icon-btn" title="Search chats">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                        </button>
+                        <button class="icon-btn" id="collapse-sidebar-btn" title="Hide sidebar">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line></svg>
+                        </button>
+                    </div>
+                </div>
+                
+                <a href="chat.html" class="new-chat-btn" style="text-decoration: none;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                    <span>New Chat</span>
+                </a>
+            </div>
+
+            <!-- Sidebar Navigation Category links -->
+            <div class="sidebar-nav-links">
+                <a href="chat.html" class="nav-item">
+                    <span class="nav-icon">🌿</span>
+                    <span>Consultations</span>
+                </a>
+                <a href="market.html" class="nav-item">
+                    <span class="nav-icon">📈</span>
+                    <span>Market Intel</span>
+                </a>
+                <a href="soil-crops.html" class="nav-item active">
+                    <span class="nav-icon">🍂</span>
+                    <span>Soil &amp; Crops</span>
+                </a>
+            </div>
+
+            <!-- Recent Sessions Section -->
+            <div class="sidebar-section-header">Recents</div>
+            <div class="sessions-list" id="sessions-list">
+                <!-- Dynamically populated via JS -->
+            </div>
+        </aside>
+
+        <!-- Sidebar Toggle for Mobile/Collapsed -->
+        <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle Sidebar">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="9" y1="3" x2="9" y2="21"></line>
+            </svg>
+        </button>
+
+        <!-- ===== MAIN PANEL ===== -->
+        <main class="chat-main">
+            <!-- Header -->
+            <header class="chat-header">
+                <div class="header-left"></div>
+                <div class="header-right">
+                    <a href="index.html" class="home-nav-link">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                        <span>Portal Home</span>
+                    </a>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <div class="dashboard-content">
+                <div class="dashboard-header">
+                    <h1 class="dashboard-title">Soil &amp; Crops</h1>
+                    <p class="dashboard-subtitle">Monitor soil composition, macronutrient status, and evaluate suitable crop crop rotations.</p>
+                </div>
+
+                <!-- Soil Status Grid -->
+                <div class="dashboard-grid">
+                    <!-- Soil Type -->
+                    <div class="dash-card">
+                        <div class="card-top">
+                            <span class="card-icon">🟫</span>
+                            <span class="trend-badge stable" style="background:rgba(74,103,65,0.1); color:#4a6741;">Optimal</span>
+                        </div>
+                        <div class="card-name">Primary Soil Type</div>
+                        <div class="card-value">Sandy Loam</div>
+                        <div class="card-meta">Moderate water retention</div>
+                    </div>
+
+                    <!-- pH Level -->
+                    <div class="dash-card">
+                        <div class="card-top">
+                            <span class="card-icon">🧪</span>
+                            <span class="trend-badge up">6.8 pH</span>
+                        </div>
+                        <div class="card-name">Soil pH Level</div>
+                        <div class="card-value">Neutral</div>
+                        <div class="card-meta">Excellent nutrient intake</div>
+                    </div>
+
+                    <!-- Moisture -->
+                    <div class="dash-card">
+                        <div class="card-top">
+                            <span class="card-icon">💧</span>
+                            <span class="trend-badge up">42%</span>
+                        </div>
+                        <div class="card-name">Soil Moisture</div>
+                        <div class="card-value">Adequate</div>
+                        <div class="card-meta">Last checked: 2 hours ago</div>
+                    </div>
+
+                    <!-- Organic Carbon -->
+                    <div class="dash-card">
+                        <div class="card-top">
+                            <span class="card-icon">🌱</span>
+                            <span class="trend-badge stable">0.65%</span>
+                        </div>
+                        <div class="card-name">Organic Carbon</div>
+                        <div class="card-value">Moderate</div>
+                        <div class="card-meta">Goal: > 0.8% for rich yield</div>
+                    </div>
+                </div>
+
+                <!-- NPK & Crop Suitability Section -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; width: 100%;">
+                    <!-- NPK Section -->
+                    <div class="dashboard-section" style="flex: 1;">
+                        <h2 class="section-title">Macronutrient Status (NPK)</h2>
+                        <div class="npk-grid">
+                            <!-- Nitrogen -->
+                            <div class="npk-item">
+                                <div class="npk-label-row">
+                                    <span class="npk-name">Nitrogen (N) - Soil Growth</span>
+                                    <span class="npk-status medium">60% • Medium</span>
+                                </div>
+                                <div class="progress-track">
+                                    <div class="progress-fill n" style="width: 60%;"></div>
+                                </div>
+                            </div>
+
+                            <!-- Phosphorus -->
+                            <div class="npk-item">
+                                <div class="npk-label-row">
+                                    <span class="npk-name">Phosphorus (P) - Root &amp; Blossom</span>
+                                    <span class="npk-status high">85% • Optimal</span>
+                                </div>
+                                <div class="progress-track">
+                                    <div class="progress-fill p" style="width: 85%;"></div>
+                                </div>
+                            </div>
+
+                            <!-- Potassium -->
+                            <div class="npk-item">
+                                <div class="npk-label-row">
+                                    <span class="npk-name">Potassium (K) - Disease Resistance</span>
+                                    <span class="npk-status low">32% • Critical Deficit</span>
+                                </div>
+                                <div class="progress-track">
+                                    <div class="progress-fill k" style="width: 32%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.4; border-top: 1px solid var(--border-chat); padding-top: 0.8rem; margin-top: 0.4rem;">
+                            <strong>Advisory:</strong> Soil shows a strong deficit in Potassium (K). Recommend adding 30-40 kg of Sulfate of Potash (SOP) per acre before next irrigation cycle.
+                        </div>
+                    </div>
+
+                    <!-- Crop Suitability Calculator Section -->
+                    <div class="dashboard-section" style="flex: 1;">
+                        <h2 class="section-title">Crop Rotation Planner</h2>
+                        <div class="calc-form-row">
+                            <div class="form-group">
+                                <label for="soil-select">Select Soil Type</label>
+                                <select id="soil-select" class="form-select">
+                                    <option value="sandy-loam">Sandy Loam (Current)</option>
+                                    <option value="clayey">Clayey Soil</option>
+                                    <option value="black-cotton">Black Cotton Soil</option>
+                                    <option value="alluvial">Alluvial Soil</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="season-select">Select Target Season</label>
+                                <select id="season-select" class="form-select">
+                                    <option value="kharif">Kharif (Monsoon/Summer)</option>
+                                    <option value="rabi">Rabi (Winter)</option>
+                                    <option value="zaid">Zaid (Spring/Short Summer)</option>
+                                </select>
+                            </div>
+                            <button class="btn-calc" id="btn-calculate">
+                                <span>Plan Rotation</span>
+                            </button>
+                        </div>
+
+                        <!-- Results Container -->
+                        <div class="calc-results" id="calc-results">
+                            <h3 class="results-heading" id="results-heading">Recommended Rotation Schedule</h3>
+                            <div class="rotation-timeline" id="rotation-timeline">
+                                <!-- Populated dynamically -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="localization.js?v=3"></script>
+    <script src="soil-crops.js"></script>
+</body>
+</html>

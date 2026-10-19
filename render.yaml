@@ -1,0 +1,37 @@
+services:
+  - type: web
+    name: agrimitra
+    runtime: python
+    plan: starter
+    buildCommand: pip install -r requirements.txt
+    startCommand: cd backend && uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    disk:
+      name: agrimitra-data
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: DATABASE_URL
+        value: sqlite:////var/data/agrimitra.db
+      - key: NVIDIA_API_KEY
+        sync: false
+      - key: NVIDIA_MODEL
+        value: nvidia/nemotron-3.5-lightning-30b-a3b
+      - key: OPENAI_API_BASE
+        value: https://integrate.api.nvidia.com/v1
+      - key: NVIDIA_REQUEST_TIMEOUT_SECONDS
+        value: "60"
+      - key: DATA_GOV_API_KEY
+        sync: false
+      - key: DATA_GOV_RESOURCE_ID
+        value: 9ef84268-d588-465a-a308-a864a43d0070
+      - key: DATA_GOV_API_BASE
+        value: https://api.data.gov.in/resource
+      - key: DATA_GOV_CACHE_TTL_SECONDS
+        value: "300"
+      - key: DATA_GOV_CONNECT_TIMEOUT_SECONDS
+        value: "5"
+      - key: DATA_GOV_READ_TIMEOUT_SECONDS
+        value: "15"

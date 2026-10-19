@@ -1,0 +1,23 @@
+.env
+**/.env
+
+# Python environments and generated files
+.venv/
+**/.venv/
+__pycache__/
+**/__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Local databases and runtime state
+*.db
+*.sqlite
+*.sqlite3
+
+# Build and editor files
+build/
+dist/
+*.egg-info/
+.vscode/

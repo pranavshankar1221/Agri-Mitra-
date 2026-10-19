@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Latest reported government mandi prices and market trends.">
+    <title>AgriMitra | Reported Mandi Prices</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Lora:ital,wght@0,500;0,600;1,500&family=Noto+Sans+Arabic:wght@400;500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Noto+Sans+Gujarati:wght@400;500;600;700&family=Noto+Sans+Gurmukhi:wght@400;500;600;700&family=Noto+Sans+Kannada:wght@400;500;600;700&family=Noto+Sans+Malayalam:wght@400;500;600;700&family=Noto+Sans+Oriya:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&family=Noto+Sans+Telugu:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=16">
+    <link rel="stylesheet" href="chat.css?v=7">
+    <link rel="stylesheet" href="market.css?v=1">
+</head>
+<body class="light-theme">
+    <div class="chat-container">
+        <aside class="chat-sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="header-top-row">
+                    <a href="index.html" class="logo">
+                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+                            <ellipse cx="11" cy="8" rx="7" ry="9" fill="#4a6741" transform="rotate(-8 11 8)" opacity="0.9" />
+                            <ellipse cx="11" cy="9" rx="4" ry="7" fill="#6a9460" transform="rotate(-8 11 9)" opacity="0.7" />
+                            <line x1="11" y1="20" x2="10" y2="4" stroke="#3a5230" stroke-width="1.5" stroke-linecap="round" />
+                        </svg>
+                        <span>AgriMitra</span>
+                    </a>
+                    <div class="sidebar-actions">
+                        <button class="icon-btn" title="Search chats" aria-label="Search chats">⌕</button>
+                        <button class="icon-btn" id="collapse-sidebar-btn" title="Hide sidebar" aria-label="Hide sidebar">☰</button>
+                    </div>
+                </div>
+                <a href="chat.html" class="new-chat-btn" style="text-decoration: none;">
+                    <span aria-hidden="true">＋</span><span>New Chat</span>
+                </a>
+            </div>
+            <nav class="sidebar-nav-links" aria-label="Main navigation">
+                <a href="chat.html" class="nav-item"><span class="nav-icon">🌿</span><span>Consultations</span></a>
+                <a href="market.html" class="nav-item active"><span class="nav-icon">📈</span><span>Market Intel</span></a>
+                <a href="soil-crops.html" class="nav-item"><span class="nav-icon">🍂</span><span>Soil &amp; Crops</span></a>
+            </nav>
+            <div class="sidebar-section-header">Recents</div>
+            <div class="sessions-list" id="sessions-list"></div>
+        </aside>
+
+        <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle Sidebar">☰</button>
+
+        <main class="chat-main">
+            <header class="chat-header">
+                <div class="header-left"></div>
+                <div class="header-right">
+                    <a href="index.html" class="home-nav-link"><span>⌂</span><span>Portal Home</span></a>
+                </div>
+            </header>
+
+            <div class="dashboard-content market-dashboard">
+                <div class="dashboard-header">
+                    <h1 class="dashboard-title">Reported Mandi Prices</h1>
+                    <p class="dashboard-subtitle">Latest available daily reports from the Government of India's data.gov.in. These are reported market observations, not live tick-by-tick prices.</p>
+                </div>
+
+                <form class="market-filters" id="market-filter-form">
+                    <label>Commodity
+                        <input id="commodity-filter" list="commodity-options" maxlength="100" placeholder="e.g. Tomato" autocomplete="off">
+                        <datalist id="commodity-options"></datalist>
+                    </label>
+                    <label>State
+                        <input id="state-filter" maxlength="100" placeholder="Any state">
+                    </label>
+                    <label>District
+                        <input id="district-filter" maxlength="100" placeholder="Any district">
+                    </label>
+                    <label>Mandi
+                        <input id="market-filter" maxlength="100" placeholder="Any market">
+                    </label>
+                    <label>Report date
+                        <input id="date-filter" type="date">
+                    </label>
+                    <button class="market-button" type="submit">Search reports</button>
+                    <button class="market-button secondary" type="button" id="refresh-prices">Refresh</button>
+                </form>
+
+                <p class="market-status" id="market-status" role="status" aria-live="polite">Loading latest available reports…</p>
+
+                <section class="market-summary-grid" aria-label="Reported price summary">
+                    <article class="market-summary-card"><span>Min-price range</span><strong id="summary-min">—</strong></article>
+                    <article class="market-summary-card"><span>Modal price range</span><strong id="summary-modal">—</strong></article>
+                    <article class="market-summary-card"><span>Max-price range</span><strong id="summary-max">—</strong></article>
+                    <article class="market-summary-card"><span>7-day / 30-day change</span><strong id="summary-change">Insufficient history</strong></article>
+                </section>
+
+                <section class="market-panel">
+                    <div class="market-panel-heading">
+                        <div>
+                            <h2>Observed price trend</h2>
+                            <p>Trend calculations use only distinct source report dates already retrieved and stored by this application.</p>
+                        </div>
+                        <span id="trend-label">No trend data yet</span>
+                    </div>
+                    <div id="trend-chart" class="market-chart" aria-label="Historical modal price chart"></div>
+                </section>
+
+                <section class="market-panel">
+                    <div class="market-panel-heading">
+                        <div>
+                            <h2>Mandi comparison</h2>
+                            <p id="report-meta">Source report date and application retrieval time will appear here.</p>
+                        </div>
+                        <a class="market-source-label" href="https://data.gov.in/resource/current-daily-price-various-commodities-various-markets-mandi" target="_blank" rel="noopener noreferrer">Source: data.gov.in</a>
+                    </div>
+                    <div class="market-table-wrap">
+                        <table class="market-table">
+                            <thead>
+                                <tr><th>Market</th><th>District / State</th><th>Commodity / variety</th><th>Min (₹/quintal)</th><th>Modal (₹/quintal)</th><th>Max (₹/quintal)</th><th>Report date</th></tr>
+                            </thead>
+                            <tbody id="market-table-body"></tbody>
+                        </table>
+                    </div>
+                    <div class="market-pagination">
+                        <button type="button" class="market-button secondary" id="previous-page" disabled>Previous</button>
+                        <span id="page-label">Page 1</span>
+                        <button type="button" class="market-button secondary" id="next-page" disabled>Next</button>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+    <script src="localization.js?v=3"></script>
+    <script src="market.js?v=13"></script>
+</body>
+</html>
