@@ -44,17 +44,36 @@ remains available for reproducible local installs.
 
 1. Sign in to Render and choose **New > Blueprint**.
 2. Connect the GitHub repository you pushed above and select its `main` branch.
-3. Render reads the root `render.yaml`. During the initial Blueprint setup,
+3. Keep the service **Root Directory** at the repository root (`.` or blank),
+   not `backend`. The Blueprint sets `rootDir: .`; the root contains
+   `requirements.txt` and `render.yaml`.
+4. Render reads the root `render.yaml`. During the initial Blueprint setup,
    provide values for `NVIDIA_API_KEY` and `DATA_GOV_API_KEY` in Render's
    environment-variable prompt. Enter the keys directly in Render; do not put
    them in the YAML file or GitHub. For later Blueprint updates, add new secrets
    in the service's **Environment** settings because `sync: false` values are
    not prompted again.
-4. Confirm the service is created with a persistent disk mounted at
+5. Confirm the service is created with a persistent disk mounted at
    `/var/data`, then wait for the deploy to finish.
-5. Open the Render service URL. Confirm `/health` returns
+6. Open the Render service URL. Confirm `/health` returns
    `{"status":"ok","environment":"production"}`, then check `/`, `/chat.html`,
    and `/market.html`.
+
+## Fix an existing failed web service
+
+The Render log shown for AgriMitra has the Uvicorn launch command under **Running
+build command**, followed by `uvicorn: command not found`. In that service's
+**Settings > Build & Deploy**, set:
+
+- **Root Directory:** blank (repository root) or `.`, never `backend`.
+- **Build Command:** `pip install -r requirements.txt`
+- **Start Command:** `cd backend && uvicorn app.main:app --host 0.0.0.0 --port $PORT`
+
+Save the settings and redeploy the latest commit. The command that installs
+dependencies must run during the build; the command that launches Uvicorn must
+run only after that, as the start command. If the service is managed by a
+Blueprint, push the updated root `render.yaml` and redeploy/sync the Blueprint
+instead of leaving old dashboard command overrides in place.
 
 The Blueprint uses a paid `starter` web service because Render persistent disks
 are available only to paid services. The disk stores
